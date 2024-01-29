@@ -1,27 +1,17 @@
 import java.util.Arrays;
 import java.util.Comparator;
 public class Main {
+
     public static void main(String[] args) {
-                Employee employee1 = new Employee("Иванов", 5000, "2021-01-01");
-                Employee employee2 = new Employee("Петров", 6000, "2020-12-01");
-                Manager manager = new Manager("Сидоров", 8000, "2022-03-01");
+        // 1) Создание резервной копии файлов в директории
+        Backup.createBackup("directory_path");
 
-                Employee[] employees = {employee1, employee2, manager};
+        // 2) Запись состояния ячеек поля в файл
+        int[] field = {1, 2, 3, 1, 2, 0, 0, 0, 0};
+        Field.writeField(field);
 
-                System.out.println("Исходные данные:");
-                for (Employee employee : employees) {
-                    System.out.println(employee);
-                }
-
-                Employee.increaseSalary(employees);
-
-                System.out.println("\nПовышение зарплаты:");
-                for (Employee employee : employees) {
-                    System.out.println(employee);
-                }
-
-        }
-
-
+        // 3) Добавление префикса к набору файлов
+        String[] filenames = {"file1.txt", "file2.txt", "file3.txt"};
+        AddPrefix.addPrefix(filenames, "prefix_");
     }
-
+}
